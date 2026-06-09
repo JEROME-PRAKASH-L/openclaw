@@ -11,9 +11,23 @@ export function truncateCloseReason(reason: string, maxBytes = CLOSE_REASON_MAX_
   if (!reason) {
     return "invalid handshake";
   }
-  const buf = Buffer.from(reason);
-  if (buf.length <= maxBytes) {
+  if (Buffer.byteLength(reason) <= maxBytes) {
     return reason;
   }
-  return buf.subarray(0, maxBytes).toString();
+  // Truncate on a UTF-8 code-point boundary. Slicing the raw byte buffer can cut
+  // a multi-byte character in half, which decodes to a U+FFFD replacement char
+  // and inflates the re-encoded length (each U+FFFD is 3 bytes), risking the
+  // RFC close-frame budget. Accumulate whole characters until the next one would
+  // exceed the limit.
+  let out = "";
+  let sizeBytes = 0;
+  for (const char of reason) {
+    const charBytes = Buffer.byteLength(char);
+    if (sizeBytes + charBytes > maxBytes) {
+      break;
+    }
+    out += char;
+    sizeBytes += charBytes;
+  }
+  return out;
 }
