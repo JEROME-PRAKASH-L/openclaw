@@ -3,7 +3,7 @@ export const SINGLE_VALUE_FILE_REF_ID = "value";
 
 /** Shared alias grammar for env/file/exec secret provider names. */
 export const SECRET_PROVIDER_ALIAS_PATTERN = /^[a-z][a-z0-9_-]{0,63}$/;
-/** JSON-schema fragment that rejects absolute file secret ref ids. */
+/** JSON-schema fragment that requires absolute file secret ref ids. */
 export const FILE_SECRET_REF_ID_ABSOLUTE_JSON_SCHEMA_PATTERN = "^/";
 /** JSON-schema fragment that rejects invalid JSON-pointer escape sequences. */
 export const FILE_SECRET_REF_ID_INVALID_ESCAPE_JSON_SCHEMA_PATTERN = "~(?:[^01]|$)";
