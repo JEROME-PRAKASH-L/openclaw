@@ -55,10 +55,9 @@ export function isRecord(value: unknown): value is Record<string, unknown> {
 /** Normalizes phone-like input into the loose E.164 shape used by channel helpers. */
 export function normalizeE164(number: string): string {
   const withoutPrefix = number.replace(/^[a-z][a-z0-9-]*:/i, "").trim();
-  const digits = withoutPrefix.replace(/[^\d+]/g, "");
-  if (digits.startsWith("+")) {
-    return `+${digits.slice(1)}`;
-  }
+  // Drop every non-digit (including stray "+" signs) so duplicated or interior
+  // plus characters cannot leak into session keys or channel allowlist matches.
+  const digits = withoutPrefix.replace(/\D/g, "");
   return `+${digits}`;
 }
 

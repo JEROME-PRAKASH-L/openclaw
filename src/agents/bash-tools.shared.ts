@@ -239,6 +239,11 @@ export function truncateMiddle(str: string, max: number) {
   if (str.length <= max) {
     return str;
   }
+  // The ellipsis split needs max >= 5; below that half is 0 and
+  // sliceUtf16Safe(str, -0) echoes the whole string, exceeding max.
+  if (max < 5) {
+    return sliceUtf16Safe(str, 0, Math.max(0, max));
+  }
   const half = Math.floor((max - 3) / 2);
   return `${sliceUtf16Safe(str, 0, half)}...${sliceUtf16Safe(str, -half)}`;
 }
