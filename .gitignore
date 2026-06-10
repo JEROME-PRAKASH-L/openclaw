@@ -3,3 +3,7 @@ dist/
 .artifacts/
 *.tsbuildinfo
 .DS_Store
+# Fork snapshot does not track the pnpm lockfile; tracking it re-enables
+# dependency CI lanes that fail on pre-existing snapshot gaps (missing
+# qa-lab mantis sources, stale npm-shrinkwrap). Remove once those are repaired.
+pnpm-lock.yaml
