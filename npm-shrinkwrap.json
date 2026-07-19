@@ -59,7 +59,7 @@
         "tslog": "4.10.2",
         "typebox": "1.1.39",
         "typescript": "6.0.3",
-        "undici": "8.3.0",
+        "undici": "8.5.0",
         "web-push": "3.6.7",
         "web-tree-sitter": "0.26.9",
         "ws": "8.21.0",
@@ -1456,9 +1456,9 @@
       }
     },
     "node_modules/gaxios": {
-      "version": "7.1.5",
-      "resolved": "https://registry.npmjs.org/gaxios/-/gaxios-7.1.5.tgz",
-      "integrity": "sha512-5FZy72Rh8LhtjmvDrKkI+lVhrsQrVKVsItxMoDm5mNQE+xR0WVIIs+jzPSJgBvKVsLi24fZhXJIsNI0bihDzFg==",
+      "version": "7.1.4",
+      "resolved": "https://registry.npmjs.org/gaxios/-/gaxios-7.1.4.tgz",
+      "integrity": "sha512-bTIgTsM2bWn3XklZISBTQX7ZSddGW+IO3bMdGaemHZ3tbqExMENHLx6kKZ/KlejgrMtj8q7wBItt51yegqalrA==",
       "license": "Apache-2.0",
       "dependencies": {
         "extend": "^3.0.2",
@@ -1559,9 +1559,9 @@
       }
     },
     "node_modules/google-auth-library": {
-      "version": "10.7.0",
-      "resolved": "https://registry.npmjs.org/google-auth-library/-/google-auth-library-10.7.0.tgz",
-      "integrity": "sha512-QpTAbNJ36TliZLx3TTtahR8HG0hN9RllL1e3FymOvQSIKK8JmgV58H924ub2wa2DsS3ANjjP1Aw1N+Ramc8hqQ==",
+      "version": "10.6.2",
+      "resolved": "https://registry.npmjs.org/google-auth-library/-/google-auth-library-10.6.2.tgz",
+      "integrity": "sha512-e27Z6EThmVNNvtYASwQxose/G57rkRuaRbQyxM2bvYLLX/GqWZ5chWq2EBoUchJbCc57eC9ArzO5wMsEmWftCw==",
       "license": "Apache-2.0",
       "dependencies": {
         "base64-js": "^1.3.0",
@@ -1671,9 +1671,9 @@
       }
     },
     "node_modules/hono": {
-      "version": "4.12.18",
-      "resolved": "https://registry.npmjs.org/hono/-/hono-4.12.18.tgz",
-      "integrity": "sha512-RWzP96k/yv0PQfyXnWjs6zot20TqfpfsNXhOnev8d1InAxubW93L11/oNUc3tQqn2G0bSdAOBpX+2uDFHV7kdQ==",
+      "version": "4.12.25",
+      "resolved": "https://registry.npmjs.org/hono/-/hono-4.12.25.tgz",
+      "integrity": "sha512-2NFaIyNVgJmBs/ecmtGzlmluTFs5cHEWGTdu0t1HBwYzoGXOL5nUQBRMXsXWla5i4KkG//QMzVP88m1+I3fdAQ==",
       "license": "MIT",
       "engines": {
         "node": ">=16.9.0"
@@ -2479,9 +2479,9 @@
       }
     },
     "node_modules/protobufjs": {
-      "version": "8.4.0",
-      "resolved": "https://registry.npmjs.org/protobufjs/-/protobufjs-8.4.0.tgz",
-      "integrity": "sha512-iriNhQ57SYA5Jbdi+41AyPdx6jPPkFO7DODzkOBmqFhgYn/JzX2HxgxYPY18eQAs3CP/AWqtPvkWn8rclRAxdQ==",
+      "version": "8.4.1",
+      "resolved": "https://registry.npmjs.org/protobufjs/-/protobufjs-8.4.1.tgz",
+      "integrity": "sha512-oXf2UgIty8jnwfN4yvL1x79VLhL5uiKjZJbSGXGCIUmHmItTP4eS/UIlWDCeNx3seg+ujfn9vDlPMSrsh7wO+Q==",
       "hasInstallScript": true,
       "license": "BSD-3-Clause",
       "dependencies": {
@@ -3256,9 +3256,9 @@
       }
     },
     "node_modules/undici": {
-      "version": "8.3.0",
-      "resolved": "https://registry.npmjs.org/undici/-/undici-8.3.0.tgz",
-      "integrity": "sha512-TkUDgb6tl7KOGZ+7e8E3d2FYgUQgF6z5YypqjWmixVQSQERFcVrVg0ySADm2LVLRh5ljAaHTCR5Fmz3Q34rB7Q==",
+      "version": "8.5.0",
+      "resolved": "https://registry.npmjs.org/undici/-/undici-8.5.0.tgz",
+      "integrity": "sha512-xamtWoB1EshgjpmlXd7GGm2VfdDtw1+rD8uhry8pSNW3If6S8E0m2T2+orSKeZXEn/aPJMviCpDBA65WJt8zhg==",
       "license": "MIT",
       "engines": {
         "node": ">=22.19.0"
