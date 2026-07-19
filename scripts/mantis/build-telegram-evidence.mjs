@@ -368,11 +368,16 @@ export function writeTelegramEvidence(rawArgs = process.argv.slice(2)) {
   if (!existsSync(observedPath)) {
     throw new Error(`Missing Telegram observed messages: ${observedPath}`);
   }
+  const summary = readJson(summaryPath);
   if (!existsSync(reportPath)) {
+    const counts = summary.counts ?? {};
+    const pass = counts.failed === 0 && Number(counts.total ?? 0) > 0;
+    if (pass) {
+      throw new Error(`Missing Telegram QA report for passing summary: ${reportPath}`);
+    }
     writeFileSync(reportPath, "# Mantis Telegram Live QA\n\nTelegram QA report was unavailable.\n");
   }
 
-  const summary = readJson(summaryPath);
   const observedMessages = readJson(observedPath);
   const transcriptHtml = renderTelegramEvidenceHtml({ observedMessages, summary });
   writeFileSync(path.join(outputDir, "telegram-live-transcript.html"), transcriptHtml, "utf8");
