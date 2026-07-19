@@ -45,6 +45,7 @@ minimumReleaseAgeExclude:
   - "@microsoft/teams.graph@2.0.12"
   - "@openai/codex"
   - "@openai/codex-*"
+  - "@vitest/browser"
   - "@pierre/diffs@1.2.3"
   - "@smithy/shared-ini-file-loader@4.5.4"
   - "@typescript/native-preview*"
@@ -56,10 +57,13 @@ minimumReleaseAgeExclude:
   - "oxfmt"
   - "axios@1.15.0"
   - "discord-api-types"
+  - "form-data"
   - "rolldown"
   - "sqlite-vec"
   - "sqlite-vec-*"
   - "rastermill"
+  - "undici"
+  - "vitest"
   - "clawpdf"
 
 nodeLinker: hoisted
@@ -70,7 +74,7 @@ overrides:
   "@aws-sdk/core": 3.974.13
   "@aws-sdk/credential-provider-node": 3.972.52
   "@aws-sdk/xml-builder": 3.972.25
-  hono: 4.12.18
+  hono: 4.12.25
   "@hono/node-server": 1.19.14
   axios: 1.16.0
   fast-uri: 3.1.2
@@ -81,7 +85,7 @@ overrides:
   request-promise: "npm:@cypress/request-promise@5.0.0"
   basic-ftp: 6.0.1
   file-type: 22.0.1
-  form-data: 2.5.4
+  form-data: 2.5.6
   ip-address: 10.2.0
   minimatch: 10.2.5
   path-to-regexp: 8.4.0
@@ -91,8 +95,11 @@ overrides:
   tar: 7.5.15
   tough-cookie: 4.1.3
   yauzl: 3.2.1
-  protobufjs: 8.4.0
+  protobufjs: 8.4.1
+  "undici@>=7.0.0 <8.0.0": 7.28.0
+  "undici@>=8.0.0 <8.5.0": 8.5.0
   uuid: 14.0.0
+  vite: 8.0.16
 
 allowBuilds:
   "@openclaw/fs-safe": true
