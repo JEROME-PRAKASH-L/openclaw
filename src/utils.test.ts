@@ -7,6 +7,7 @@ import { withTempDir } from "./test-helpers/temp-dir.js";
 import { withEnv } from "./test-utils/env.js";
 import {
   ensureDir,
+  normalizeE164,
   resolveConfigDir,
   resolveHomeDir,
   resolveUserPath,
@@ -22,6 +23,19 @@ describe("ensureDir", () => {
       await ensureDir(target);
       expect(fs.existsSync(target)).toBe(true);
     });
+  });
+});
+
+describe("normalizeE164", () => {
+  it("normalizes formatted numbers and channel prefixes", () => {
+    expect(normalizeE164("+1 (555) 010-0123")).toBe("+15550100123");
+    expect(normalizeE164("signal:+15550100123")).toBe("+15550100123");
+    expect(normalizeE164("15550100123")).toBe("+15550100123");
+  });
+
+  it("collapses duplicated or interior plus signs", () => {
+    expect(normalizeE164("++15550100123")).toBe("+15550100123");
+    expect(normalizeE164("+1555+0100123")).toBe("+15550100123");
   });
 });
 

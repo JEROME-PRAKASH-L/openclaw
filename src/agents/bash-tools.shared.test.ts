@@ -7,7 +7,12 @@ import { mkdir, mkdtemp, rm } from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { deriveSessionName, readEnvInt, resolveSandboxWorkdir } from "./bash-tools.shared.js";
+import {
+  deriveSessionName,
+  readEnvInt,
+  resolveSandboxWorkdir,
+  truncateMiddle,
+} from "./bash-tools.shared.js";
 
 async function withTempDir(run: (dir: string) => Promise<void>) {
   const dir = await mkdtemp(path.join(os.tmpdir(), "openclaw-bash-workdir-"));
@@ -17,6 +22,18 @@ async function withTempDir(run: (dir: string) => Promise<void>) {
     await rm(dir, { recursive: true, force: true });
   }
 }
+
+describe("truncateMiddle", () => {
+  it("keeps short strings and middle-truncates long ones", () => {
+    expect(truncateMiddle("hello", 5)).toBe("hello");
+    expect(truncateMiddle("abcdefghij", 7)).toBe("ab...ij");
+  });
+
+  it("never exceeds max when the ellipsis split cannot fit", () => {
+    expect(truncateMiddle("hello world", 4)).toBe("hell");
+    expect(truncateMiddle("hello world", 0)).toBe("");
+  });
+});
 
 describe("resolveSandboxWorkdir", () => {
   afterEach(() => {
